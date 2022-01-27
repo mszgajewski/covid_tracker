@@ -3,10 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Corona Tracker</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-<h1> Witaj!</h1>
-<h2>[[${test1}]]</h2>
-<h2 th:text="${test1}"></h2>
+
+    <nav class="teal">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Coronawirus na świecie</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <table>
+            <tr>
+                <th>Miejsce</th>
+                <th>Potwierdzone</th>
+                <th>Aktywne</th>
+                <th>Ozdrowieńcy</th>
+                <th>Aktualizacja</th>
+            </tr>
+            <tr>
+                <tr th:each="corona: ${coronaData}">
+                    <td th:text="${corona.combinedKey}"></td>
+                    <td th:text="${corona.confirmed}"></td>
+                    <td th:text="${corona.active}"></td>
+                    <td th:text="${corona.recovered}"></td>
+                    <td th:text="${corona.lastUpdate.toString()}"></td>
+            </tr>
+
+
+        </table>
+    </div>
+
+    <h1> Witaj!</h1>
+    <h2 th:text="${test1}"></h2>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 </body>
 </html>
