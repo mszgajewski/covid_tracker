@@ -23,6 +23,8 @@ public class MainController {
     @GetMapping("/test")
     public String testMethod(Model model) throws IOException {
         model.addAttribute("test1", "Witaj użytkowniku!");
+        coronaService.populateDatabase2();
+        coronaService.populateDatabase();
         return "mainTemplate";
     }
 
