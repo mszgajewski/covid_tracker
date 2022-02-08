@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
+@ToString
 @EntityListeners(AuditingEntityListener.class)
 
 public class Corona implements Serializable       {
@@ -29,17 +30,5 @@ public class Corona implements Serializable       {
     Long confirmed;
     Long confirmedChanges;
     LocalDateTime lastUpdate;
-
-    @Override
-    public String toString() {
-        return "Corona{" +
-                "combinedKey='" + combinedKey + '\'' +
-                ", active=" + active +
-                ", recovered=" + recovered +
-                ", confirmed=" + confirmed +
-                ", lastUpdate=" + lastUpdate +
-                '}';
-    }
-
 
 }
