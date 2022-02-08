@@ -30,5 +30,4 @@ public class Corona implements Serializable       {
     Long confirmed;
     Long confirmedChanges;
     LocalDateTime lastUpdate;
-
 }
