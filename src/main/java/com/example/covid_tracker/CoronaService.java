@@ -2,6 +2,7 @@ package com.example.covid_tracker;
 
 import com.opencsv.CSVReader;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -33,12 +34,13 @@ public class CoronaService {
     @Scheduled(cron = "0 4 * * *")
     public void populateDatabase() throws IOException {
 
-        URL url = new URL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/01-24-2022.csv");
+        URL url = new URL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/06-02-2020.csv");
         HttpURLConnection huc = (HttpURLConnection) url.openConnection();
-        int response = huc.getResponseCode();
+        int responseCode = huc.getResponseCode();
 
-        if(response == 200) {
-            log.info("Successfuly conected");
+        log.info(String.valueOf(huc.getResponseCode()));
+        if(responseCode == 200) {
+            log.info("--Successfuly conected--");
 
             CSVReader reader = null;
             try{
@@ -91,7 +93,7 @@ public class CoronaService {
 
     public void populateDatabase2() throws IOException {
 
-        URL url = new URL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/01-24-2022.csv");
+        URL url = new URL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/05-02-2020.csv");
         HttpURLConnection huc = (HttpURLConnection) url.openConnection();
         int response = huc.getResponseCode();
 

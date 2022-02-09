@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @ToString
 @EntityListeners(AuditingEntityListener.class)
 
-public class Corona implements Serializable       {
+public class Corona implements Serializable {
 
     @Id
     @Column(name = "id", updatable = false, unique = true)
