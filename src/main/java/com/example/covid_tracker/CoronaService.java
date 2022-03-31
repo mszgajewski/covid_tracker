@@ -34,7 +34,7 @@ public class CoronaService {
     @Scheduled(cron = "0 4 * * *")
     public void populateDatabase() throws IOException {
 
-        URL url = new URL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/06-02-2020.csv");
+        URL url = new URL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-28-2022.csv");
         HttpURLConnection huc = (HttpURLConnection) url.openConnection();
         int responseCode = huc.getResponseCode();
 
@@ -93,7 +93,7 @@ public class CoronaService {
 
     public void populateDatabase2() throws IOException {
 
-        URL url = new URL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/05-02-2020.csv");
+        URL url = new URL("https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-27-2020.csv");
         HttpURLConnection huc = (HttpURLConnection) url.openConnection();
         int response = huc.getResponseCode();
 
