@@ -2,19 +2,22 @@ package com.example.covid_tracker;
 
 import com.opencsv.CSVReader;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+
 import java.util.List;
 
 @Service
@@ -44,7 +47,6 @@ public class CoronaService {
 
             CSVReader reader = null;
             try{
-
                 BufferedReader input = new BufferedReader(new InputStreamReader(huc.getInputStream()),8192);
                 reader = new CSVReader(input);
 
@@ -70,9 +72,7 @@ public class CoronaService {
                         corona.setConfirmedChanges(corona.getConfirmed() - coronaList.get(coronaList.size() - 1).getConfirmed());
                         corona.setRecoveredChanges(corona.getRecovered() - coronaList.get(coronaList.size() - 1).getRecovered());
                         corona.setActiveChanges(corona.getActive() - coronaList.get(coronaList.size() - 1).getActive());
-
                     }
-
                     coronaRepository.save(corona);
                     log.info(corona.toString());
                 }
@@ -88,7 +88,6 @@ public class CoronaService {
                 }
             }
         }
-
     }
 
     public void populateDatabase2() throws IOException {
@@ -102,7 +101,6 @@ public class CoronaService {
 
             CSVReader reader = null;
             try{
-
                 BufferedReader input = new BufferedReader(new InputStreamReader(huc.getInputStream()),8192);
                 reader = new CSVReader(input);
 
@@ -128,9 +126,7 @@ public class CoronaService {
                         corona.setConfirmedChanges(corona.getConfirmed() - coronaList.get(coronaList.size() - 1).getConfirmed());
                         corona.setRecoveredChanges(corona.getRecovered() - coronaList.get(coronaList.size() - 1).getRecovered());
                         corona.setActiveChanges(corona.getActive() - coronaList.get(coronaList.size() - 1).getActive());
-
                     }
-
                     coronaRepository.save(corona);
                     log.info(corona.toString());
                 }
@@ -146,7 +142,6 @@ public class CoronaService {
                 }
             }
         }
-
     }
 
     private List<Corona> findByCombinedKey(String combinedKey) {

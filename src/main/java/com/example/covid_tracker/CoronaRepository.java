@@ -11,5 +11,4 @@ public interface CoronaRepository extends JpaRepository<Corona, Long> {
     List<Corona> findByLastUpdateBetween(LocalDateTime from, LocalDateTime to);
 
     List<Corona> findByCombinedKey(String combinedKey);
-
 }
